@@ -26,7 +26,17 @@ def find_feature(t = 'a'):
 df1 = pd.read_csv('data/a_feature.csv')  
 df2 = pd.read_csv('data/b_feature.csv')
 df3 = pd.read_csv('data/c_feature.csv')
+
+df_id = pd.DataFrame({'id':['a']*4296})
+df1 = pd.concat([df_id, df1], axis = 1)
+
+df_id = pd.DataFrame({'id':['b']*165})
+df2 = pd.concat([df_id, df2], axis = 1)
     
-df1 
-    
+df_id = pd.DataFrame({'id':['c']*165})
+df3 = pd.concat([df_id, df3], axis = 1)
+
+feature = pd.concat([df1, df2, df3])
+
+feature.to_csv('data/site_feature.csv', index=False)
     
